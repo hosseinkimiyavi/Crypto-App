@@ -1,11 +1,12 @@
 import React from 'react'
+import {RotatingLines} from 'react-loader-spinner'
 import chartUp from "../../assets/chart-up.svg"
 import chartDown from "../../assets/chart-down.svg"
-function Tables({coines}) {
+function Tables({coines ,loading}) {
     console.log(coines)
   return (
     <div>
-      <table className='text-white m-auto'>
+      {loading?<div className='flex items-center justify-center'><RotatingLines strokeColor="white" width="52" /></div>:(<table className='text-white m-auto'>
         <thead>
           <tr>
             <th>Coin</th>
@@ -22,7 +23,7 @@ function Tables({coines}) {
           ))}
             
         </tbody>
-      </table>
+      </table>)}
     </div>
   )
 }
