@@ -5,43 +5,46 @@ import chartDown from "../../assets/chart-down.svg"
 function Tables({coines ,loading}) {
     console.log(coines)
   return (
-    <div>
-      {loading?<div className='flex items-center justify-center'><RotatingLines strokeColor="white" width="52" /></div>:(<table className='text-white m-auto'>
-        <thead>
-          <tr>
-            <th>Coin</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>24h</th>
-            <th>Total Volume</th>
-            <th></th>
+    <>
+    <div className='flex justify-center items-center mt-52 mb-36 ml-10 mr-10' >
+      {loading?<div className='flex items-center justify-center mt-56'><RotatingLines strokeColor="white" width="52" height="52" /></div>:( <div className='relative overflow-x-auto rounded-lg shadow-2xl shadow-blue-400'><table className='text-white m-4'>
+        <thead className=''>
+          <tr className='border-b-2'>
+            <th className='px-5 py-1'>Coin</th>
+            <th className='px-5 py-1'>Name</th>
+            <th className='px-5 py-1'>Price</th>
+            <th className='px-5 py-1'>24h</th>
+            <th className='px-5 py-1'>Total Volume</th>
+            <th className='px-5 py-1'></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className=''>
           {coines.map((coines)=>(
             <TableRow coines={coines} key={coines.id} />
           ))}
             
         </tbody>
-      </table>)}
+      </table>
+      </div>)}
     </div>
+    </>
   )
 }
 
 export default Tables
 
 const TableRow = ({coines:{image ,symbol ,name,current_price,total_volume ,price_change_percentage_24h:price_change}})=>{
-  return(<tr>
-    <td>
-      <div>
-    <img src={image} alt={symbol} className='h-8' />
-    <span>{symbol.toUpperCase()}</span>
+  return(<tr className='border-b-2 border-gray-700'>
+    <td className='px-6 py-1'>
+      <div className='flex items-center cursor-pointer py-3 '>
+    <img src={image} alt={symbol} className='h-9 mr-4' />
+    <div className='px-'>{symbol.toUpperCase()}</div>
     </div>
     </td>
-    <td>{name}</td>
-    <td>{current_price.toLocaleString()}</td>
-    <td>{price_change.toFixed(2)}%</td>
-    <td>{total_volume.toLocaleString()}</td>
-    <td><img src={price_change>0?chartUp:chartDown} alt="" /></td>
+    <td className='px-6 py-1'>{name}</td>
+    <td className='px-6 py-1 '>{current_price.toLocaleString()}</td>
+    <td className={price_change>0?'text-green-600 px-6 py-1':'text-red-600 px-6 py-1'}>{price_change.toFixed(2)}%</td>
+    <td className='px-6 py-1 '>{total_volume.toLocaleString()}</td>
+    <td className=''><img src={price_change>0?chartUp:chartDown} alt="" /></td>
     </tr>)
 }
