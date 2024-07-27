@@ -3,7 +3,7 @@ import {RotatingLines} from 'react-loader-spinner'
 import chartUp from "../../assets/chart-up.svg"
 import chartDown from "../../assets/chart-down.svg"
 function Tables({coines ,loading}) {
-    console.log(coines)
+    // console.log(coines)
   return (
     <>
     <div className='flex justify-center items-center mt-52 mb-36 ml-10 mr-10' >
