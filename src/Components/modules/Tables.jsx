@@ -2,12 +2,12 @@ import React from 'react'
 import {RotatingLines} from 'react-loader-spinner'
 import chartUp from "../../assets/chart-up.svg"
 import chartDown from "../../assets/chart-down.svg"
-function Tables({coines ,loading}) {
+function Tables({coines ,loading ,setchart}) {
     // console.log(coines)
   return (
     <>
     <div className='flex justify-center items-center mt-16 mb-36 ml-10 mr-10' >
-      {loading?<div className='flex items-center justify-center mt-56'><RotatingLines strokeColor="white" width="52" height="52" /></div>:( <div className='relative overflow-x-auto rounded-lg shadow-2xl shadow-blue-400'><table className='text-white m-4'>
+      {loading?<div className='flex items-center justify-center mt-56'><RotatingLines strokeColor="white" width="52" height="52" /></div>:( <div className=' overflow-x-auto rounded-lg shadow-2xl shadow-blue-400'><table className='text-white m-4'>
         <thead className=''>
           <tr className='border-b-2'>
             <th className='px-5 py-1'>Coin</th>
@@ -20,7 +20,7 @@ function Tables({coines ,loading}) {
         </thead>
         <tbody className=''>
           {coines.map((coines)=>(
-            <TableRow coines={coines} key={coines.id} />
+            <TableRow coines={coines} key={coines.id} setchart={setchart} />
           ))}
             
         </tbody>
@@ -33,10 +33,14 @@ function Tables({coines ,loading}) {
 
 export default Tables
 
-const TableRow = ({coines:{image ,symbol ,name,current_price,total_volume ,price_change_percentage_24h:price_change}})=>{
+const TableRow = ({coines:{image ,symbol ,name,current_price,total_volume ,price_change_percentage_24h:price_change},setchart})=>{
+
+  const chartHandler =()=>{
+    setchart(true)
+  }
   return(<tr className='border-b-2 border-gray-700'>
     <td className='px-6 py-1'>
-      <div className='flex items-center cursor-pointer py-3 '>
+      <div className='flex items-center cursor-pointer py-3' onClick={chartHandler}>
     <img src={image} alt={symbol} className='h-9 mr-4' />
     <div className='px-'>{symbol.toUpperCase()}</div>
     </div>

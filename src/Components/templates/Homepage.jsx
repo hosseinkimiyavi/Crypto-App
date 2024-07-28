@@ -3,12 +3,14 @@ import Tables from '../modules/Tables';
 import { GetcoinList } from '../../services/cryptoApi';
 import Paginate from '../modules/Paginate';
 import Search from '../modules/Search';
+import Chart from '../modules/Chart';
 
 function Homepage() {
     const[coines,setcoines]=useState([])
     const [isloading,setloading]=useState(true)
     const [page,setpage] =useState(1)
     const [currency , setcurrency] = useState("usd")
+    const [chart , setchart] = useState(null)
     
 
     useEffect(()=>{
@@ -24,8 +26,9 @@ function Homepage() {
   return (
     <>
     <Search currency={currency} setcurrency={setcurrency} />
-    <Tables coines={coines} loading ={isloading} />
+    <Tables coines={coines} loading ={isloading} setchart={setchart} />
     <Paginate page={page} setpage={setpage} />
+    {!!chart && <Chart chart={chart} setchart={setchart} />}
     </>
   )
 }
