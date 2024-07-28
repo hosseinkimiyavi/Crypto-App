@@ -9,6 +9,7 @@ function Homepage() {
     const [isloading,setloading]=useState(true)
     const [page,setpage] =useState(1)
     const [currency , setcurrency] = useState("usd")
+    
 
     useEffect(()=>{
         const GetData = async()=>{

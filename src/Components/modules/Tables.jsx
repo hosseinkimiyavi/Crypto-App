@@ -6,7 +6,7 @@ function Tables({coines ,loading}) {
     // console.log(coines)
   return (
     <>
-    <div className='flex justify-center items-center mt-52 mb-36 ml-10 mr-10' >
+    <div className='flex justify-center items-center mt-16 mb-36 ml-10 mr-10' >
       {loading?<div className='flex items-center justify-center mt-56'><RotatingLines strokeColor="white" width="52" height="52" /></div>:( <div className='relative overflow-x-auto rounded-lg shadow-2xl shadow-blue-400'><table className='text-white m-4'>
         <thead className=''>
           <tr className='border-b-2'>
