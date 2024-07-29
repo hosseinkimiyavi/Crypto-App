@@ -2,6 +2,7 @@ import React from 'react'
 import {RotatingLines} from 'react-loader-spinner'
 import chartUp from "../../assets/chart-up.svg"
 import chartDown from "../../assets/chart-down.svg"
+import { chartCoin } from '../../services/cryptoApi'
 function Tables({coines ,loading ,setchart}) {
     // console.log(coines)
   return (
@@ -33,10 +34,20 @@ function Tables({coines ,loading ,setchart}) {
 
 export default Tables
 
-const TableRow = ({coines:{image ,symbol ,name,current_price,total_volume ,price_change_percentage_24h:price_change},setchart})=>{
+const TableRow = ({coines:{id,image ,symbol ,name,current_price,total_volume ,price_change_percentage_24h:price_change},setchart})=>{
 
   const chartHandler =()=>{
-    setchart(true)
+    const chartshow =async()=>{
+      try{
+      const res = await fetch(chartCoin(id))
+      const json = await res.json()
+      setchart(json)
+      console.log(json);
+    }
+  catch(err){
+    setchart(null)
+  }}
+    chartshow()
   }
   return(<tr className='border-b-2 border-gray-700'>
     <td className='px-6 py-1'>

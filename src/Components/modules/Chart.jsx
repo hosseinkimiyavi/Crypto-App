@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { convertData } from '../../Helpers/convertData';
 
 function Chart({chart,setchart}) {
+  const [type ,settype] =useState("prices")
+  console.log(convertData(chart,type));
   return (
     <>
     <div className='fixed w-full h-full backdrop-blur-sm top-0 left-0'>
