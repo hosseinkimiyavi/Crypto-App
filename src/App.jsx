@@ -1,15 +1,19 @@
 import Homepage from "./Components/templates/Homepage"
+import Layout from "./layout/Layout"
 
 
 function App() {
   
 
   return (
-    <>
-  
-  <Homepage />
     
-    </>
+  <Layout>
+
+  <Homepage />
+ 
+  </Layout>
+    
+  
   )
 }
 

@@ -34,14 +34,15 @@ function Tables({coines ,loading ,setchart}) {
 
 export default Tables
 
-const TableRow = ({coines:{id,image ,symbol ,name,current_price,total_volume ,price_change_percentage_24h:price_change},setchart})=>{
-
+const TableRow = ({coines,setchart})=>{
+  const{id,image ,symbol ,name,current_price,total_volume ,price_change_percentage_24h:price_change}=coines;
   const chartHandler =()=>{
+    
     const chartshow =async()=>{
       try{
       const res = await fetch(chartCoin(id))
       const json = await res.json()
-      setchart(json)
+      setchart({...json ,coin:coines})
       console.log(json);
     }
   catch(err){
