@@ -25,6 +25,7 @@ function Homepage() {
     },[page, currency]);
   return (
     <>
+    
     <Search currency={currency} setcurrency={setcurrency} />
     <Tables coines={coines} loading ={isloading} setchart={setchart} />
     <Paginate page={page} setpage={setpage} />
