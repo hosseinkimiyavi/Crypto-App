@@ -1,5 +1,6 @@
 import Homepage from "./Components/templates/Homepage";
 import Layout from "./layout/Layout";
+import { Analytics } from "@vercel/analytics/react"
 
 
 function App() {
