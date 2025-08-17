@@ -41,10 +41,10 @@ function Search({ currency, setcurrency }) {
   }, [text]);
   return (
     <div>
-      <div className="flex items-center justify-center mt-52 relative ">
+      <div className="flex items-center justify-center mt-20 relative md:mt-40 ">
         <div className="">
           <input
-            className="outline-none p-1 w-64 font-semibold fonfont-serif  rounded-lg mr-2 bg-blue-300"
+            className="outline-none p-1 w-60 font-semibold fonfont-serif  rounded-lg mr-2 bg-blue-300 md:w-64"
             type="search"
             value={text}
             onChange={(e) => settext(e.target.value)}

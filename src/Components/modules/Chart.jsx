@@ -24,13 +24,13 @@ function Chart({ chart, setchart }) {
     <>
       <div className="fixed w-full h-full backdrop-blur-sm top-0 left-0">
         <span
-          className=" inline-block w-8 h-8 bg-blue-500 rounded-lg text-center font-medium ml-10 mt-10   cursor-pointer  text-white  "
+          className=" inline-block w-8 h-8 bg-blue-500 rounded-lg text-center font-medium ml-10 mt-10 cursor-pointer  text-white  "
           onClick={() => setchart(null)}
         >
           X
         </span>
-        <div className="w-3/6 bg-slate-800 p-10 m-auto rounded-2xl mt-8 border-2 border-slate-500 border-solid">
-          <div className="flex mb-9">
+        <div className="w-5/6 p-2 bg-slate-800  m-auto rounded-2xl mt-4 border-2 border-slate-500 border-solid md:w-3/5 lg:w-3/6">
+          <div className="flex mb-3 md:mb-9">
             <img className="w-8 h-8 mr-2" src={chart.coin.image} alt="" />
             <p className="text-white font-medium">{chart.coin.name}</p>
           </div>
@@ -39,23 +39,23 @@ function Chart({ chart, setchart }) {
             {/* div-->graph */}
             <ChartComponent data={convertData(chart, type)} type={type} />
           </div>
-          <div className="flex space-x-10 mt-3 " onClick={buttonHandeler}>
+          <div className="flex justify-between mt-3 " onClick={buttonHandeler}>
             <button className="border border-blue-500 border-2 p-1 rounded-lg text-blue-600 font-medium bg-blue-300">Prices</button>
             <button className="border border-blue-500 border-2 p-1 rounded-lg text-blue-600 font-medium bg-blue-300">Market Caps</button>
             <button className="border border-blue-500 border-2 p-1 rounded-lg text-blue-600 font-medium bg-blue-300">Total volumes</button>
           </div>
-          <div className="flex justify-between mt-10">
+          <div className="flex justify-center items-center flex-col mt-5 lg:flex-row lg:justify-between lg:mt-10">
             <div className="flex space-x-1">
-              <p className="text-blue-600 font-medium">Prices:</p>
-              <span className="text-white">${chart.coin.current_price}</span>
+              <p className="text-blue-600 text-sm md:text-lg">Prices:</p>
+              <span className="text-white text-sm m-auto">${chart.coin.current_price}</span>
             </div>
             <div className="flex space-x-1">
-              <p className="text-blue-600 font-medium">ATH:</p>
-              <span className="text-white">${chart.coin.ath}</span>
+              <p className="text-blue-600 text-sm md:text-lg">ATH:</p>
+              <span className="text-white text-sm m-auto">${chart.coin.ath}</span>
             </div>
             <div className="flex space-x-1">
-              <p className="text-blue-600 font-medium">Market Cap:</p>
-              <span className="text-white">${chart.coin.market_cap}</span>
+              <p className="text-blue-600 text-sm md:text-lg">Market Cap:</p>
+              <span className="text-white text-sm m-auto">${chart.coin.market_cap}</span>
             </div>
           </div>
         </div>
